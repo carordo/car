@@ -1,18 +1,16 @@
 ## Carlos Ordonez 
 
-You can use the [editor on GitHub](https://github.com/carordo/carlosaordonez.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
 ### Overbooking Optimization
 
 Most airlines use overbooking method to make sure that all seats are full in any flight. Particularly the ones witht the most frequency. No long ago a passanger was dragged out of a plane by a security officer. [United Airlines Passsenger Is Dragged from an Overbooked Flight](https://www.nytimes.com/2017/04/10/business/united-flight-passenger-dragged.html)
 
+In the process of analyzing data and looking for Artificial Intelligence outcome to maximize this problem I counter this code by [Cory Simon] (http://corysimon.github.io/articles/by-how-many-flights-should-an-airline-overbook/) that siulates the problem.
 
-In the process of analyzing data and looking for Artificial Intelligence outcome to maximize the the Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+I decided to use the same code and run it Jupyter Notebook with an static random values as presented in his code. The Goal will be to use actual data in order to fit into the system to create a more realstic scenario. 
+
 
 ```markdown
-Syntax highlighted code block
+
 
 # Header 1
 ## Header 2
