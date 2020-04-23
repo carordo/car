@@ -5,6 +5,41 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+<style>
+
+
+path.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+circle {
+  fill: #ccc;
+  stroke: #fff;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+text {
+  fill: #000;
+  font: 12px sans-serif;
+  pointer-events: none;
+  font-weight: bold;
+}
+
+.node {
+  cursor: move;
+  fill: #ccc;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.node.fixed {
+  fill: #f00;
+}
+</style>
 	<head>
 		<title>Carlos Ordóñez</title>
 		<meta charset="utf-8" />
@@ -49,7 +84,12 @@
 										</ul>
 									</div>
 									<span class="image object">
-										<img src="images/Data-Photo.jpg" alt="" />
+										<script type="text/javascript" src="graph.js">
+
+
+										</script>
+
+										<!-- <img src="images/Data-Photo.jpg" alt="" /> -->
 									</span>
 								</section>
 
