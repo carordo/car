@@ -159,8 +159,8 @@ var nodesCircle = node.append("circle")
    // return l.scaleSqrt().range([])
   // console.log(d.index)
   // console.log(d.weight)
-   var minRadius =2;
-   return minRadius * d.weight^2;
+   var minRadius =10;
+   return minRadius + d.weight*1.5;
    })
    .on("dblclick",dblclick)
    .call(d3.drag()
@@ -175,8 +175,9 @@ var nodeMin = d3.min(resultNodes);
 var nodeMax = d3.max(resultNodes);
 
 var colorScale = d3.scaleSequential()
-        .domain([nodeMin, nodeMax])
-        .interpolator(d3.interpolateReds);
+        .domain([ nodeMin,nodeMax])
+        .interpolator(d3.interpolateWarm);
+        // .interpolate({colors: ["red", "blue"]}, {colors: ["white", "black"]});
 
 nodesCircle.style( "fill", function(d) {
         return colorScale(d.weight);
@@ -186,9 +187,20 @@ nodesCircle.style( "fill", function(d) {
 
 node.append("text")
     .attr ("dx", function(d) {
-            return d.weight**2*.1+5})
+            return d.weight*1.5+10})
     .attr ("dy", ".90em")
     .text(function (d) { return d.name });
+
+node.append("text")
+    .attr ("dx", -5)
+    .attr ("dy", 0)
+    .text(function (d) {
+      if (d.weight>0 ){
+        return d.weight
+      }
+    });
+
+       // return d.weight });
 
 
 // add the curvy lines
@@ -243,10 +255,12 @@ svg.append("g")
     .attr("transform", "translate(0," + heightLetters + ")")
     .append("text")
     .attr("fill", "#000")
-    .attr("x", 150)
-    .attr("dy", "3em")
+    .attr("dx", 850)
+    .attr("dy", 700)
     .attr("text-anchor", "end")
-    .text("Graph");
+    .text("Representation of the English Premier League 2019 - 2020- Teams with More than 10 Games Won");
+
+
 
 function dragstarted(d) {
 if (!d3.event.active) force.alphaTarget(0.3).restart();
