@@ -35,6 +35,8 @@ var force = d3.forceSimulation()
     .force("charge", d3.forceManyBody().strength(-50))
     .alphaTarget(1)
     .on("tick", tick);
+// testing the straight lineGeneratorSix
+
 
 // This function contains the data in links
 // I see no difference between d and i
@@ -44,7 +46,6 @@ var force = d3.forceSimulation()
 // carlos note use the following as canvas on html
 var svg = d3.select("body").append("svg")
 
-    .attr("width", width)
     .attr("width", width)
     .attr("height", height)
     // .attr("transform", "translate(0, 150)")
@@ -63,13 +64,13 @@ var path = svg.append("g")
     .attr("class", function(d) { return "link " + d.type; })
 
     .style ("stroke", function (d){
-    return d.value == 1 ? "gray":      "gray";
+    return d.value == 1 ? "gray":      "yellow";
     })
     .style ("stroke-width", function (d){
-    return d.value == 1 ? 2 :      1;
+    return d.value == 1 ? 6 :      1;
     })
     .style ("stroke-dasharray", function (d){
-    return d.value == -1 ? 5: "none";
+    return d.value == -1 ? 4: "none";
     })
     //
     // .style ("stroke", function (d){
@@ -256,7 +257,7 @@ svg.append("g")
     .append("text")
     .attr("fill", "#000")
     .attr("dx", 850)
-    .attr("dy", 700)
+    .attr("dy", 780)
     .attr("text-anchor", "end")
     .text("Representation of the English Premier League 2019 - 2020- Teams with More than 10 Games Won");
 
