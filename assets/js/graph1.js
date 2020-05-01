@@ -18,7 +18,7 @@ links.forEach(function(link) {
 
 var width = 1100,
     height = 1000
-    heightLetters = 20;
+    heightLetters = 25;
 
 
 
@@ -28,11 +28,11 @@ var width = 1100,
 var force = d3.forceSimulation()
 
     .nodes(d3.values(nodes))
-    .force("link", d3.forceLink(links).distance(500))
+    .force("link", d3.forceLink(links).distance(525))
     .force('center', d3.forceCenter(width / 2, height / 2))
     .force("x", d3.forceX())
     .force("y", d3.forceY())
-    .force("charge", d3.forceManyBody().strength(-50))
+    .force("charge", d3.forceManyBody().strength(-200))
     .alphaTarget(1)
     .on("tick", tick);
 // testing the straight lineGeneratorSix
@@ -72,41 +72,8 @@ var path = svg.append("g")
     .style ("stroke-dasharray", function (d){
     return d.value == -1 ? 4: "none";
     })
-    //
-    // .style ("stroke", function (d){
-    //   // if (d.value == -1) {
-      //
-      //     return "#8D5524"
-      // // } else if (d.value == 0){
-      // //     return "#8E4E4C"
-      //
-      // }else if (d.value == 1){
-      //
-      //   return "#FFDBAC"
-      // }})
-    //
-    // return d.value == -1 ? "red" :      "none";
-    // })
-    // .style ("stroke-width", function (d){
-    // return d.value == 1 ? 2:      1;
-    // })
-    // .style ("stroke", function (d){
-    //
-    // return d.value == -1 ? "red" :      "none";
-    // })
-    // .style ("stroke-dasharray", function (d){
-    // return d.value == 0 ? 5: "none";
-    // })
-    // .style ("stroke-linecap", function (d){
-    // return d.value == -2 ? 5: "none";
-    // })
-    // .style ("stroke", function (d){
-    // return d.value == -2 ? "red": "none";
-    // })
+
     ;
-
-
-
 
 // define the nodes
 var node = svg.selectAll(".node")
@@ -134,30 +101,6 @@ var nodesCircle = node.append("circle")
    // d.weight = links.filter(function(l) {
      // l.source.index == d.index
 
-  //
- //   if (l.value > 0) {
- //    console.log(l.source)
- //    console.log(l.value)
- //    console.log(d.index)
- //    console.log(l.value == d.index)
- //     return l.value == d.index
- //
- //   }
- //   else if (l.value ==-1){
- //    // console.log("lvalue2")
- //     return Math.sqrt(l.value)
- //
- //   }
- //  else if (l.value ==0){
- //     return (l.value )
- //   }
- //    //
- //    // return l.value
- //
- //    // console.log(l.value)
- // // });
- // }).length;
-   // return l.scaleSqrt().range([])
   // console.log(d.index)
   // console.log(d.weight)
    var minRadius =10;
@@ -188,9 +131,13 @@ nodesCircle.style( "fill", function(d) {
 
 node.append("text")
     .attr ("dx", function(d) {
-            return d.weight*1.5+10})
-    .attr ("dy", ".90em")
-    .text(function (d) { return d.name });
+            return -(d.weight*1.5)})
+    // .attr ("y", "-5em")
+    .attr ("y",  function(d) {
+            return -(d.weight*1.5)-15})
+
+    .text(function (d) { return d.name })
+    .attr("font-size", "20px");
 
 node.append("text")
     .attr ("dx", -5)
@@ -240,7 +187,7 @@ console.log(d.fixed)
          d.fy = null;
          }
 
-    else {d3.select(this).classed ("fixed",d.fixed = true).style("fill", "orange");
+    else {d3.select(this).classed ("fixed",d.fixed = true).style("fill", "pink");
 
         d.fx = d.x;
         d.fy = d.y;
@@ -257,8 +204,10 @@ svg.append("g")
     .append("text")
     .attr("fill", "#000")
     .attr("dx", 850)
-    .attr("dy", 780)
+    .attr("dy", 770)
+    .attr("font-size", "20px")
     .attr("text-anchor", "end")
+    .attr("font-size", "200px")
     .text("Representation of the English Premier League 2019 - 2020- Teams with More than 10 Games Won");
 
 
