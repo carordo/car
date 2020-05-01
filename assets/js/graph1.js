@@ -67,7 +67,7 @@ var path = svg.append("g")
     return d.value == 1 ? "gray":      "red";
     })
     .style ("stroke-width", function (d){
-    return d.value == 1 ? 4 :      1;
+    return d.value == 1 ? 3 :      1;
     })
     .style ("stroke-dasharray", function (d){
     return d.value == -1 ? 4: "none";
