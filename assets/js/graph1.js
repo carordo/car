@@ -16,7 +16,7 @@ links.forEach(function(link) {
         (nodes[link.target] = {name: link.target}); //if you were not in the source but were in the target we will add
 });
 
-var width = 1100,
+var width = 1500,
     height = 1000
     heightLetters = 25;
 
@@ -32,7 +32,7 @@ var force = d3.forceSimulation()
     .force('center', d3.forceCenter(width / 2, height / 2))
     .force("x", d3.forceX())
     .force("y", d3.forceY())
-    .force("charge", d3.forceManyBody().strength(-200))
+    .force("charge", d3.forceManyBody().strength(-300))
     .alphaTarget(1)
     .on("tick", tick);
 // testing the straight lineGeneratorSix
@@ -128,8 +128,9 @@ nodesCircle.style( "fill", function(d) {
    });
 
 
-
+//append text of the team
 node.append("text")
+
     .attr ("dx", function(d) {
             return -(d.weight*1.5)})
     // .attr ("y", "-5em")
@@ -137,11 +138,13 @@ node.append("text")
             return -(d.weight*1.5)-15})
 
     .text(function (d) { return d.name })
-    .attr("font-size", "20px");
-
+    .attr("fill","red")
+    ;
+//append text inside the node
 node.append("text")
     .attr ("dx", -5)
     .attr ("dy", 0)
+    // .attr("font-size", "400px")
     .text(function (d) {
       if (d.weight>0 ){
         return d.weight
@@ -203,9 +206,9 @@ svg.append("g")
     .attr("transform", "translate(0," + heightLetters + ")")
     .append("text")
     .attr("fill", "#000")
-    .attr("dx", 850)
-    .attr("dy", 770)
-    .attr("font-size", "20px")
+    .attr("dx",1200)
+    .attr("dy", 850)
+    // .attr("font-size", "200px")
     .attr("text-anchor", "end")
     .attr("font-size", "200px")
     .text("Representation of the English Premier League 2019 - 2020- Teams with More than 10 Games Won");
